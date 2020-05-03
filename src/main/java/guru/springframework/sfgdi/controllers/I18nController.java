@@ -1,8 +1,10 @@
 package guru.springframework.sfgdi.controllers;
 
-import guru.springframework.sfgdi.services.GreetingService;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
+
+import guru.springframework.sfgdi.services.GreetingService;
 
 /**
  * Created by jt on 12/27/19.
@@ -10,13 +12,14 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class I18nController {
 
-    private final GreetingService greetingService;
-
-    public I18nController(@Qualifier("i18nService") GreetingService greetingService) {
-        this.greetingService = greetingService;
+	@Resource( name = "i18nEnglishGreetingService")
+    private final GreetingService i18NSpanishService;
+   
+    public I18nController(	GreetingService i18NSpanishService) {
+        this.i18NSpanishService = i18NSpanishService;
     }
 
     public String sayHello(){
-        return greetingService.sayGreeting();
+        return i18NSpanishService.sayGreeting();
     }
 }

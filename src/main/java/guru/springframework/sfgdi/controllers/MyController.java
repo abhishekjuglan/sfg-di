@@ -11,8 +11,8 @@ public class MyController {
 
     private final GreetingService greetingService;
 
-    public MyController(GreetingService greetingService) {
-        this.greetingService = greetingService;
+    public MyController(GreetingService i18nEnglishGreetingService) {
+        this.greetingService = i18nEnglishGreetingService;
     }
 
     public String sayHello(){
